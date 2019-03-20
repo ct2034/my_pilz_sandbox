@@ -6,7 +6,6 @@ import numpy as np
 from pilz_robot_programming import *
 import random
 import rospy
-import tf
 import time
 
 __REQUIRED_API_VERSION__ = "1"  # API version
