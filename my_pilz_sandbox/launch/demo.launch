@@ -2,13 +2,16 @@
 <launch>
 
   <arg name="sim" default="true" />
+  <arg name="gripper" default="" />
 
   <!-- send urdf to param server -->
   <param name="robot_description" command="$(find xacro)/xacro '$(find my_pilz_sandbox)/urdf/my_first_application.xacro'"/>
 
   <include file="$(find prbt_moveit_config)/launch/moveit_planning_execution.launch">
+    <arg name="rviz_config" value="$(find my_pilz_sandbox)/launch/topdown.rviz"/>
     <arg name="load_robot_description" value="false"/>
     <arg name="sim" value="$(arg sim)"/>
+    <arg name="gripper" value="$(arg gripper)"/>
     <arg name="pipeline" value="pilz_command_planner"/><!-- Before pilz_trajectory_generation only 'command_planner' -->
   </include>
 
