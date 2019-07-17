@@ -60,7 +60,10 @@ def pausing_a_sequence(r):
     move_thread.start()
     for i in range(10):
         rospy.sleep(1)
-        r.pause()
+        try:
+            r.pause()
+        except Exception as e:
+            rospy.loginfo(e)
         rospy.sleep(.2)
         r.resume()
 
@@ -97,4 +100,4 @@ if __name__ == "__main__":
 
     # start the main program
     pausing_a_sequence(r)
-    pausing_a_ptp(r)
+    # pausing_a_ptp(r)

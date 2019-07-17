@@ -37,7 +37,8 @@ def grid(r):
                 new_pose = Pose(Point(x, y, z), Quaternion())
                 print(new_pose)
                 try:
-                    r.move(Ptp(new_pose, vel_scale=0.2))
+                    r.move(Ptp(goal=new_pose,
+                               vel_scale=0.2))
                     sp.poses.append(new_pose)
                     pub_sp.publish(sp)
                 except Exception as e:
