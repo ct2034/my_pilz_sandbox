@@ -11,7 +11,8 @@ import time
 __REQUIRED_API_VERSION__ = "1"  # API version
 def brake(r):
     while True:
-        ROS_INFO('r.is_brake_test_required(): {}'.format(
+        rospy.rostime.wallsleep(1)
+        rospy.loginfo('r.is_brake_test_required(): {}'.format(
             str(r.is_brake_test_required())))
 
 if __name__ == "__main__":
